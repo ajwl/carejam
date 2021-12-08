@@ -1,0 +1,26 @@
+[
+    {
+        "name" : "hallway",
+        "id": 0,
+        "onwards" : [],
+        "pngUrl": "intro-base.png",
+        "svgUrl": "",
+        "text": "This is the hallway"
+    },
+    {
+        "name" : "bedroom",
+        "id": 2,
+        "onwards" : [],
+        "pngUrl": "",
+        "svgUrl": "",
+        "text": "Mrs Pearlson never switched the lights off"
+    },
+    {
+        "name" : "kitchen",
+        "id": 3,
+        "onwards" : [],
+        "pngUrl": "",
+        "svgUrl": "",
+        "text": ""
+    }
+]
