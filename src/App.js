@@ -6,16 +6,10 @@ import Scene from './Scene.js'
 import Intro from './rooms/Intro.js'
 import Hall from './rooms/Hall.js'
 import Bench from './rooms/Bench.js'
-
-import introImg from './assets/intro-base.jpg'
-import hallImg from './assets/intro-base.jpg'
-import bedroomImg from './assets/bedroom-base.png'
-import kitchenImg from './assets/bedroom-base.png'
-import drivewayImg from './assets/driveway-base.jpg'
-import benchImg from './assets/bedroom-base.png'
-import livingImg from './assets/livingroom-base.jpg'
-
-
+import Kitchen from './rooms/Kitchen.js'
+import Driveway from './rooms/Driveway.js'
+import Living from './rooms/LivingRoom.js'
+import Bedroom from './rooms/Bedroom.js'
 
 
 function App() {
@@ -32,7 +26,7 @@ function App() {
 
   const introTxt = "Margate, 4:55pm, you are 5 minutes early"
   const hallTxt = "Gooooooood afternoon, Mrs. Galavaten! Hope you’re ready for a long walk… Hello? Mrs. Galavaten? Where are you…?"
-  const bedTxt = "Strange Mrs Pearlson never turned the lights out"
+  const bedroomTxt = "Strange Mrs Pearlson never turned the lights out"
   const kitchenTxt = ""
   const drivewayTxt = ""
   const benchTxt = ""
@@ -62,46 +56,42 @@ function App() {
     }
     else if(scene === 'bedroom'){
       return(
-          <Scene 
-            text={bedTxt} 
-            name="bedroom" 
-            png={bedroomImg}
-            onwards={["hall"]}
-            setScene={setScene}>
-          </Scene>
+        <Bedroom 
+          text={bedroomTxt} 
+          name="bedroom" 
+          onwards={["hall"]}
+          setScene={setScene}>
+        </Bedroom>
       )
     }
     else if(scene === 'living') {
       return (
-          <Scene 
-            text={livingTxt} 
-            name="living" 
-            png={livingImg} 
-            onwards={["hall"]}
-            setScene={setScene}>
-          </Scene>
+        <Living 
+          text={livingTxt} 
+          name="living" 
+          onwards={["hall"]}
+          setScene={setScene}>
+        </Living>
       )
     }
     else if(scene === 'kitchen') {
       return (
-          <Scene 
+          <Kitchen 
             text={kitchenTxt} 
             name="kitchen" 
-            png={kitchenImg} 
             onwards={["hall"]}
             setScene={setScene}>
-            </Scene>
+          </Kitchen>
       )
     }
     else if(scene === 'driveway') {
       return (
-          <Scene 
+          <Driveway 
             text={drivewayTxt} 
             name="driveway" 
-            png={drivewayImg} 
             onwards={["hall","bench"]}
             setScene={setScene}>
-          </Scene>
+          </Driveway>
       )
     }
     else if(scene === 'bench') {
