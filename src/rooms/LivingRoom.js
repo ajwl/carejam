@@ -8,11 +8,8 @@ function Living({ text, name, onwards, setScene }) {
     const svgRef = useRef();
     const q = gsap.utils.selector(svgRef);
 
-
-    // wait until DOM has been rendered
     useEffect(() => {
     //   gsap.fromTo(q("#doorPath_"), {opacity: 0.1}, { opacity: 0.75, duration: 1.2, repeat: 3, ease: "power.inOut" });
-
       // noooo bad 
     //   svgRef.current.querySelector("#doorPath_").onclick=()=>setScene("hall")
 
