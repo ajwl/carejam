@@ -3,15 +3,20 @@ import { gsap } from "gsap";
 import './App.css';
 
 import Scene from './Scene.js'
-import Intro from './Intro.js'
+import Intro from './rooms/Intro.js'
+import Hall from './rooms/Hall.js'
+import Bench from './rooms/Bench.js'
 
+import introImg from './assets/intro-base.jpg'
 import hallImg from './assets/intro-base.jpg'
 import bedroomImg from './assets/bedroom-base.png'
-import signImg from './assets/sign.png'
 import kitchenImg from './assets/bedroom-base.png'
-import drivewayImg from './assets/bedroom-base.png'
+import drivewayImg from './assets/driveway-base.jpg'
 import benchImg from './assets/bedroom-base.png'
 import livingImg from './assets/livingroom-base.jpg'
+
+
+
 
 function App() {
 
@@ -25,7 +30,8 @@ function App() {
 
   const [scene, setScene] = useState("intro");
 
-  const hallTxt = "Mrs Pearlson, Mrs Pearlson - are you there?"
+  const introTxt = "Margate, 4:55pm, you are 5 minutes early"
+  const hallTxt = "Gooooooood afternoon, Mrs. Galavaten! Hope you’re ready for a long walk… Hello? Mrs. Galavaten? Where are you…?"
   const bedTxt = "Strange Mrs Pearlson never turned the lights out"
   const kitchenTxt = ""
   const drivewayTxt = ""
@@ -33,25 +39,25 @@ function App() {
   const livingTxt = ""
 
 
-  // const handleChange(newValue) {
-  //   setValue(newValue);
-  // }
-
   const getSceneCompoonent = () => {
     if(scene === 'intro') {
       return (
-          <Intro png={signImg} setScene={setScene}></Intro>
+        <Intro 
+            text={introTxt} 
+            name="intro" 
+            onwards={["hall"]}
+            setScene={setScene}>
+          </Intro>
       )
     }
     else if(scene === 'hall') {
       return (
-          <Scene 
-            text={hallTxt} 
-            name="hall" 
-            png={hallImg} 
-            onwards={["bedroom", "living", "driveway", "kitchen", "intro"]}
-            setScene={setScene}>
-            </Scene>
+        <Hall 
+          text={hallTxt} 
+          name="hall" 
+          onwards={["bedroom", "living", "driveway", "kitchen", "intro"]}
+          setScene={setScene}>
+        </Hall>
       )
     }
     else if(scene === 'bedroom'){
@@ -100,13 +106,12 @@ function App() {
     }
     else if(scene === 'bench') {
       return (
-          <Scene 
-            text={benchTxt} 
-            name="bench" 
-            png={benchImg} 
-            onwards={[]}
-            setScene={setScene}>
-          </Scene>
+        <Bench 
+          text={benchTxt} 
+          name="bench" 
+          onwards={["bedroom", "living", "driveway", "kitchen", "intro"]}
+          setScene={setScene}>
+        </Bench>
       )
     }
 

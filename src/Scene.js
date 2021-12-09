@@ -4,13 +4,7 @@ import './App.css';
 
 function Scene({text, png, onwards, setScene }) {
 
-    // store a reference to the box div
-    // const boxRef = useRef();
 
-    // wait until DOM has been rendered
-    // useEffect(() => {
-    //   gsap.to(boxRef.current, { rotation: "+=360" });
-    // });
 
   return (
     <>
@@ -30,7 +24,6 @@ function Scene({text, png, onwards, setScene }) {
                     return  <button onClick={() => setScene(path)}>Go to {path}</button>
                 })
             }
-               
         </div>
     </>
   );
