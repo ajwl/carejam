@@ -2,8 +2,11 @@ import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from "gsap";
 import '../App.css';
 import { ReactComponent as IntroSvg } from "../assets/intro.svg";
+import TextBox from "../TextBox.js"
 
 function Intro({ text, name, onwards, setScene }) {
+
+    const [textVisible, setTextVisible] = useState(true)
 
     // store a reference to the box div
     const svgRef = useRef();
@@ -27,13 +30,7 @@ function Intro({ text, name, onwards, setScene }) {
                 <IntroSvg ref={svgRef}/> 
             </div>
         </div>
-        {/* <div className="button-strip">
-            {
-                onwards.map(path => {
-                    return  <button onClick={() => setScene(path)}>Go to {path}</button>
-                })
-            }
-        </div> */}
+        <TextBox text={text} setTextVisible={setTextVisible} visible={textVisible}/>
 
     </>
   );

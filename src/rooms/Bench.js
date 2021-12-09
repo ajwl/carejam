@@ -5,7 +5,9 @@ import { ReactComponent as BenchSvg } from "../assets/bench.svg";
 import TextBox from "../TextBox.js"
 
 
-function Hall({ text, name, onwards, setScene }) {
+function Bench({ text, name, onwards, setScene }) {
+
+    const [textVisible, setTextVisible] = useState(true)
 
     // store a reference to the box div
     const svgRef = useRef();
@@ -28,7 +30,7 @@ function Hall({ text, name, onwards, setScene }) {
                 <BenchSvg ref={svgRef}/> 
             </div>
         </div>
-        <TextBox text={text}/>
+        <TextBox text={text} setTextVisible={setTextVisible} visible={textVisible}/>
         <div className="button-strip">
             {
                 onwards.map(path => {
@@ -40,4 +42,4 @@ function Hall({ text, name, onwards, setScene }) {
   );
 }
 
-export default Hall;
+export default Bench;

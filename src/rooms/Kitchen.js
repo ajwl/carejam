@@ -6,6 +6,8 @@ import TextBox from "../TextBox.js"
 
 function Kitchen({ text, name, onwards, setScene }) {
 
+    const [textVisible, setTextVisible] = useState(true)
+
     const svgRef = useRef();
     const q = gsap.utils.selector(svgRef);
 
@@ -27,7 +29,7 @@ function Kitchen({ text, name, onwards, setScene }) {
                 <KitchenSvg ref={svgRef}/> 
             </div>
         </div>
-        <TextBox text={text}/>
+        <TextBox text={text} setTextVisible={setTextVisible} visible={textVisible}/>
         <div className="button-strip">
             {
                 onwards.map(path => {
