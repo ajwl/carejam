@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from "gsap";
 import './App.css';
 
-import Scene from './Scene.js'
 import Intro from './rooms/Intro.js'
 import Hall from './rooms/Hall.js'
 import Bench from './rooms/Bench.js'
