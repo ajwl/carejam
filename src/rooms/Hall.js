@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from "gsap";
 import '../App.css';
 import { ReactComponent as HallSvg } from "../assets/hall.svg";
+import TextBox from "../TextBox.js"
 
 
 const callup = () => {
@@ -10,6 +11,8 @@ const callup = () => {
 
 
 function Hall({ text, name, onwards, setScene }) {
+
+    const [textVisible, setTextVisible] = useState(true)
 
     // store a reference to the box div
     const svgRef = useRef();
@@ -41,10 +44,11 @@ function Hall({ text, name, onwards, setScene }) {
                 <HallSvg ref={svgRef}/> 
             </div>
         </div>
+        <TextBox text={text} setTextVisible={setTextVisible} visible={textVisible}/>
         <div className="button-strip">
             {
-                onwards.map(path => {
-                    return  <button onClick={() => setScene(path)}>Go to {path}</button>
+                onwards.map((path,i) => {
+                    return  <button key={i} onClick={() => setScene(path)}>Go to {path}</button>
                 })
             }
         </div>

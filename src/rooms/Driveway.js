@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from "gsap";
 import { ReactComponent as DrivewaySvg } from "../assets/driveway.svg";
 import '../App.css';
+import TextBox from "../TextBox.js"
 
 function Driveway({ text, name, onwards, setScene }) {
 
@@ -25,6 +26,7 @@ function Driveway({ text, name, onwards, setScene }) {
                 <DrivewaySvg ref={svgRef}/> 
             </div>
         </div>
+        <TextBox text={text}/>
         <div className="button-strip">
             {
                 onwards.map(path => {

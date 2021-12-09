@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from "gsap";
 import '../App.css';
 import { ReactComponent as BenchSvg } from "../assets/bench.svg";
+import TextBox from "../TextBox.js"
 
 
 function Hall({ text, name, onwards, setScene }) {
@@ -27,6 +28,7 @@ function Hall({ text, name, onwards, setScene }) {
                 <BenchSvg ref={svgRef}/> 
             </div>
         </div>
+        <TextBox text={text}/>
         <div className="button-strip">
             {
                 onwards.map(path => {

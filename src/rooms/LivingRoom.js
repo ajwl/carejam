@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from "gsap";
 import '../App.css';
 import { ReactComponent as LivingSvg } from "../assets/livingroom.svg";
+import TextBox from "../TextBox.js"
 
 function Living({ text, name, onwards, setScene }) {
 
@@ -23,6 +24,7 @@ function Living({ text, name, onwards, setScene }) {
                 <LivingSvg ref={svgRef}/> 
             </div>
         </div>
+        <TextBox text={text}/>
         <div className="button-strip">
             {
                 onwards.map(path => {
