@@ -31,11 +31,16 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  overflow-x: scroll;    
+  white-space: nowrap;
+  width: 100%;
 }
 
 .Scene img,
 .Scene svg {
     height: 100vmin;
+    /* height: 100%; */
+    vertical-align: top;
 }
 
 .button-strip {
