@@ -3,23 +3,33 @@ import { gsap } from "gsap";
 import '../App.css';
 import { ReactComponent as IntroSvg } from "../assets/intro.svg";
 import TextBox from "../TextBox.js"
+import Audio from "../Audio.js"
 
-function Intro({ text, name, onwards, setScene }) {
+import Sound from "react-sound"
+import soundone from "../assets/sounds/intro-water-lapping.mp3"
+import soundtwo from "../assets/sounds/intro-door.mp3"
+
+
+function Intro({ setScene }) {
 
     const [textVisible, setTextVisible] = useState(true)
+    const [soundUrlToPlay, setSoundUrlToPlay] = useState(soundone)
+
+    const textOne = "Margate, England. June 21, 2021. 4:55PM: You arrive early for your shift."
 
     // store a reference to the box div
     const svgRef = useRef();
     const q = gsap.utils.selector(svgRef);
-
 
     // wait until DOM has been rendered
     useEffect(() => {
       gsap.fromTo(q("#doorPath_"), {opacity: 0.1}, { opacity: 0.75, duration: 1.2, repeat: 3, ease: "power.inOut" });
 
       // noooo bad 
-      svgRef.current.querySelector("#doorPath_").onclick=()=>setScene("hall")
-
+      svgRef.current.querySelector("#doorPath_").onclick=(()=> {
+        setSoundUrlToPlay(soundtwo)
+        setTimeout(() => { setScene("hall") }, 2500);
+      })
     });
 
 
@@ -30,8 +40,8 @@ function Intro({ text, name, onwards, setScene }) {
                 <IntroSvg ref={svgRef}/> 
             </div>
         </div>
-        <TextBox text={text} setTextVisible={setTextVisible} visible={textVisible}/>
-
+        <TextBox text={textOne} setTextVisible={setTextVisible} visible={textVisible}/>
+        <Audio soundUrl={soundUrlToPlay} />
     </>
   );
 }
