@@ -20,7 +20,7 @@ function App() {
     //   gsap.to(boxRef.current, { rotation: "+=360" });
     // });
 
-  const [scene, setScene] = useState("bedroom");
+  const [scene, setScene] = useState("intro");
 
   const introTxt = "Margate, 4:55pm, you are 5 minutes early"
   const hallTxt = "Gooooooood afternoon, Mrs. Galavaten! Hope you’re ready for a long walk… Hello? Mrs. Galavaten? Where are you…?"
