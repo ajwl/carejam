@@ -4,7 +4,7 @@ import '../App.css';
 import { ReactComponent as BedroomSvg } from "../assets/bedroom.svg";
 import TextBox from "../TextBox.js"
 import Audio from "../Audio.js"
-import { showText } from '../helpers';
+import { showText } from '../helpers.js';
 
 import soundone from "../assets/sounds/bedroom-cellphone.mp3"
 import soundtwo from "../assets/sounds/bedroom-blouses.mp3"
@@ -46,6 +46,7 @@ function Bedroom({onwards, setScene }) {
     const dollId = "#b-doll"
     const reportId = "#b-report"
     const expandedReportId = "#policeRportBig_Image"
+    const lightOnId = "#LightON_Image"
 
     const pulseCircle = (id) => {
         gsap.to(q(id), { opacity: 0.5, duration: 0.6, repeat: 3, ease: "power.inOut" });
@@ -55,6 +56,8 @@ function Bedroom({onwards, setScene }) {
     useEffect(() => {
 
         // setSoundUrlToPlay(null)
+
+
 
 
         // 1 cellphone 
@@ -107,11 +110,9 @@ function Bedroom({onwards, setScene }) {
             if(isReportShowing) {
                 gsap.to(q(expandedReportId), { opacity: 0, duration: 0.6, ease: "power1.out" });
                 setIsReportShowing(false)
-                console.log("false showinng happens ")
             } else {
                 gsap.to(q(expandedReportId), {opacity: 1, duration: 0.6, ease: "power1.out"})
                 setIsReportShowing(true)
-                console.log(" showinng happens ", isReportShowing)
             }
             
         })
@@ -121,6 +122,7 @@ function Bedroom({onwards, setScene }) {
             showText(bmTextSwitch, setText, setTextVisible)
             setSoundUrlToPlay(soundsix)
             pulseCircle(switchId)
+            gsap.to(q(lightOnId), {opacity: 1, duration: 3, ease: "power1.out"})
         })
 
      
