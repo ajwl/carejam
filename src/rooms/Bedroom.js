@@ -29,7 +29,7 @@ const bmTextReport = "Police report filed by Edgar Galavaten. Looks like a polic
 function Bedroom({onwards, setScene }) {
 
     const [textVisible, setTextVisible] = useState(false)
-    const [isReportShowing, setIsReportShowing] = useState(false)
+    // const [isReportShowing, setIsReportShowing] = useState(false)
     const [text, setText] = useState(""); 
 
     const [soundUrlToPlay, setSoundUrlToPlay] = useState(null)
@@ -54,10 +54,8 @@ function Bedroom({onwards, setScene }) {
   
     // wait until DOM has been rendered
     useEffect(() => {
-
-        // setSoundUrlToPlay(null)
-
-
+        let isReportShowing = false;
+        let lightsOn = false;
 
 
         // 1 cellphone 
@@ -109,12 +107,11 @@ function Bedroom({onwards, setScene }) {
             pulseCircle(reportId)
             if(isReportShowing) {
                 gsap.to(q(expandedReportId), { opacity: 0, duration: 0.6, ease: "power1.out" });
-                setIsReportShowing(false)
+                isReportShowing = false;
             } else {
                 gsap.to(q(expandedReportId), {opacity: 1, duration: 0.6, ease: "power1.out"})
-                setIsReportShowing(true)
+                isReportShowing = true;
             }
-            
         })
 
         // 8 switch
@@ -122,7 +119,13 @@ function Bedroom({onwards, setScene }) {
             showText(bmTextSwitch, setText, setTextVisible)
             setSoundUrlToPlay(soundsix)
             pulseCircle(switchId)
-            gsap.to(q(lightOnId), {opacity: 1, duration: 3, ease: "power1.out"})
+            if(lightsOn) {
+                gsap.to(q(lightOnId), { opacity: 0, duration: 1.2, ease: "power1.out" });
+                lightsOn = false;
+            } else {
+                gsap.to(q(lightOnId), {opacity: .93, duration: 3, ease: "power1.out"})
+                lightsOn = true;
+            }
         })
 
      
