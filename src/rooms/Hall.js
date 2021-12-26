@@ -36,7 +36,6 @@ function Hall({ onwards, setScene }) {
     const call2Id = "#Call2_Image"
     const call3Id = "#cALL3_Image"
     const endCallId = "#ENDcALL_Image"
-    const wrapperDiv = ".svg-wrapper"
 
 
     // wait until DOM has been rendered

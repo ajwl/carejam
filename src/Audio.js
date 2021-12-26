@@ -10,6 +10,8 @@ const Audio = ({soundUrl}) => {
                 url={soundUrl}
                 playStatus={Sound.status.PLAYING}
                 onFinishedPlaying={() => Sound.status.STOPPED}
+                onLoading={() => {}}
+                onError={() => console.log("sound load failed")} 
             />}
        </div>
        )

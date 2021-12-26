@@ -6366,7 +6366,7 @@
 <g id="PhoneHand">
 	<g id="hand_Image">
 		
-			<image style="overflow:visible;enable-background:new    ;" width="674" height="1042" id="hand_Image-2" xlink:href="339BDC67D70BA5D0.png"  transform="matrix(1 0 0 1 4716 458)">
+			<image style="overflow:visible;enable-background:new    ;" width="674" height="1042" id="hand_Image-2" href="339BDC67D70BA5D0.png"  transform="matrix(1 0 0 1 4716 458)">
 		</image>
 	</g>
 	<g id="screen_Image">

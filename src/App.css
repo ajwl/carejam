@@ -107,3 +107,15 @@
   background-color: #282c34;
   width: 100vw;
 }
+
+
+.clickable-shape {
+  opacity: 0.15;
+  stroke: black;
+  stroke-width: 2pc;
+}
+
+#policeRportBig_Image {
+  opacity: 0;
+
+}
