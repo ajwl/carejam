@@ -4,7 +4,7 @@ import '../App.css';
 import { ReactComponent as BedroomSvg } from "../assets/bedroom.svg";
 import TextBox from "../TextBox.js"
 import Audio from "../Audio.js"
-import { showText } from '../helpers.js';
+import { showText, pulseCircle } from '../helpers.js';
 
 import soundone from "../assets/sounds/bedroom-cellphone.mp3"
 import soundtwo from "../assets/sounds/bedroom-blouses.mp3"
@@ -48,9 +48,6 @@ function Bedroom({onwards, setScene }) {
     const expandedReportId = "#policeRportBig_Image"
     const lightOnId = "#LightON_Image"
 
-    const pulseCircle = (id) => {
-        gsap.to(q(id), { opacity: 0.5, duration: 0.6, repeat: 3, ease: "power.inOut" });
-    }
   
     // wait until DOM has been rendered
     useEffect(() => {

@@ -112,7 +112,8 @@
 .clickable-shape {
   opacity: 0.15;
   stroke: black;
-  stroke-width: 2pc;
+  /* stroke-width: 2pc; */
+  cursor: pointer;
 }
 
 #policeRportBig_Image {
@@ -120,5 +121,9 @@
 }
 
 #LightON_Image {
+  opacity: 0;
+}
+
+#obituaryBig_Image {
   opacity: 0;
 }

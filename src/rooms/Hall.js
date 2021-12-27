@@ -25,7 +25,6 @@ function Hall({ onwards, setScene }) {
 
     const [textVisible, setTextVisible] = useState(true)
     const [text, setText] = useState(introText); 
-
     const [soundUrlToPlay, setSoundUrlToPlay] = useState(soundintro)
 
     const svgRef = useRef();
