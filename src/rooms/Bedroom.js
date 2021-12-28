@@ -129,7 +129,7 @@ function Bedroom({onwards, setScene }) {
 
 
 
-    },[]);
+    },[q]);
 
 
   return (

@@ -3,14 +3,16 @@ import { gsap } from "gsap";
 import { ReactComponent as DrivewaySvg } from "../assets/driveway.svg";
 import '../App.css';
 import TextBox from "../TextBox.js"
+import Audio from "../Audio.js"
+import { showText, pulseCircle } from '../helpers.js';
 
 import soundCar from "../assets/sounds/drive-car-far.mp3"
-import soundCarClose from "../assets/sounds/drive-car-close.mp3"
+import soundCarDoor from "../assets/sounds/drive-car-close.mp3"
 import soundPostcard from "../assets/sounds/drive-postcards.mp3"
 import soundAfternoon from "../assets/sounds/drive-afternoon.mp3"
 
 const driveTextCar = "Ah the Lexus. Mrs. Galavaten’s prized car. She used to cruise around the Margate in the late 90’s just before the seaside town started to decline. Decades of austerity and That cherism meant that everything went into disrepair, including the Dreamland amusement park."
-const driveTextCarClose = "Oh the Lexus. Oh the door appears to be locked."
+const driveTextCarDoor = "Oh the Lexus. Oh the door appears to be locked."
 const driveTextPostcard = `
             Oh let me see. Oh there are some postcards. Tons of them addressed to Mrs. Galavaten. The name of the sender appears illegible. It reads: 
 
@@ -27,25 +29,83 @@ const driveTextPostcard = `
             Still yours,
             M
 
-        I want to cry…
-`
+        I want to cry…`
 
-function Driveway({ text, name, onwards, setScene }) {
+function Driveway({ onwards, setScene }) {
 
-    const [textVisible, setTextVisible] = useState(true)
+    const [textVisible, setTextVisible] = useState(false)
+    const [text, setText] = useState(""); 
+    const [soundUrlToPlay, setSoundUrlToPlay] = useState(soundAfternoon)
 
     const svgRef = useRef();
     const q = gsap.utils.selector(svgRef);
 
+    const carId = "#d-car"
+    const carDoorId = "#d-cardoor"
+    const carExpandedId = "#closeUPcar-2"
+    const postcardId = "#d-postcard"
+    const expandedPostcardFrontId = "#frontpostcard"
+    const expandedPostcardBackId = "#backpostcard"
+
+    const backgroundDrivewayId = "#Colours_Image"
+
+
 
     // wait until DOM has been rendered
     useEffect(() => {
-    //   gsap.fromTo(q("#doorPath_"), {opacity: 0.1}, { opacity: 0.75, duration: 1.2, repeat: 3, ease: "power.inOut" });
+        let isCarShowing = false;
+        let isPostcardShowing = false;
 
-      // noooo bad 
-    //   svgRef.current.querySelector("#doorPath_").onclick=()=>setScene("hall")
+        // 1 car
+        svgRef.current.querySelector(carId).onclick=((targ)=>{
+            showText(driveTextCar, setText, setTextVisible)
+            setSoundUrlToPlay(soundCar)
+            pulseCircle(q, carId)
+        })
 
-    });
+        // 2 car door 
+        svgRef.current.querySelector(carDoorId).onclick=((targ)=>{
+            showText(driveTextCarDoor, setText, setTextVisible)
+            setSoundUrlToPlay(soundCarDoor)
+            pulseCircle(q, carDoorId)
+            if(isCarShowing) {
+                gsap.to(q(carExpandedId), { opacity: 0, duration: 0.6, ease: "power1.out" });
+                isCarShowing = false;
+            } else {
+                gsap.to(q(carExpandedId), {opacity: 1, duration: 0.6, ease: "power1.out"})
+                isCarShowing = true;
+            }
+        })
+
+        // 3 postcard
+        svgRef.current.querySelector(postcardId).onclick=((targ)=>{
+            showText(driveTextPostcard, setText, setTextVisible)
+            setSoundUrlToPlay(soundPostcard)
+            pulseCircle(q, postcardId)
+            if(isPostcardShowing) {
+                gsap.to(q(expandedPostcardFrontId), { opacity: 0, duration: 0.6, ease: "power1.out" });
+                gsap.to(q(expandedPostcardBackId), { opacity: 0, duration: 0.6, ease: "power1.out" });
+                isPostcardShowing = false;
+            } else {
+                gsap.to(q(expandedPostcardFrontId), {opacity: 1, duration: 0.6, ease: "power1.out"})
+                gsap.to(q(expandedPostcardBackId), { opacity: 1, duration: 1.2, ease: "power1.out" });
+                isPostcardShowing = true;
+            }
+        })
+
+        // 4 background - clear out
+        svgRef.current.querySelector(backgroundDrivewayId).onclick=((targ)=>{
+            setTextVisible(false)
+            setSoundUrlToPlay(null)
+
+            gsap.to(q(expandedPostcardFrontId), { opacity: 0 });
+            gsap.to(q(expandedPostcardBackId), { opacity: 0 });
+            gsap.to(q(carExpandedId), { opacity: 0 });
+            isCarShowing = false;
+            isPostcardShowing = false;
+        })
+
+    },[]);
 
   return (
     <>
@@ -57,12 +117,12 @@ function Driveway({ text, name, onwards, setScene }) {
         <TextBox text={text} setTextVisible={setTextVisible} visible={textVisible}/>
         <div className="button-strip">
             {
-                onwards.map(path => {
-                    return  <button onClick={() => setScene(path)}>Go to {path}</button>
+                onwards.map((path, i) => {
+                    return  <button key={i} onClick={() => setScene(path)}>Go to {path}</button>
                 })
             }
         </div>
-
+        <Audio soundUrl={soundUrlToPlay} />
     </>
   );
 }

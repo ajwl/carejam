@@ -20,15 +20,9 @@ function App() {
     //   gsap.to(boxRef.current, { rotation: "+=360" });
     // });
 
-  const [scene, setScene] = useState("intro");
+  const [scene, setScene] = useState("driveway");
 
   const introTxt = "Margate, 4:55pm, you are 5 minutes early"
-  const hallTxt = "Gooooooood afternoon, Mrs. Galavaten! Hope you’re ready for a long walk… Hello? Mrs. Galavaten? Where are you…?"
-  const bedroomTxt = "Strange Mrs Pearlson never turned the lights out"
-  const kitchenTxt = ""
-  const drivewayTxt = ""
-  const benchTxt = ""
-  const livingTxt = ""
 
 
   const getSceneCompoonent = () => {
@@ -45,7 +39,6 @@ function App() {
     else if(scene === 'hall') {
       return (
         <Hall 
-          text={hallTxt} 
           name="hall" 
           onwards={["bedroom", "living", "driveway", "kitchen", "intro"]}
           setScene={setScene}>
@@ -55,7 +48,6 @@ function App() {
     else if(scene === 'bedroom'){
       return(
         <Bedroom 
-          text={bedroomTxt} 
           name="bedroom" 
           onwards={["hall"]}
           setScene={setScene}>
@@ -65,7 +57,6 @@ function App() {
     else if(scene === 'living') {
       return (
         <Living 
-          text={livingTxt} 
           name="living" 
           onwards={["hall"]}
           setScene={setScene}>
@@ -75,7 +66,6 @@ function App() {
     else if(scene === 'kitchen') {
       return (
           <Kitchen 
-            text={kitchenTxt} 
             name="kitchen" 
             onwards={["hall"]}
             setScene={setScene}>
@@ -85,7 +75,6 @@ function App() {
     else if(scene === 'driveway') {
       return (
           <Driveway 
-            text={drivewayTxt} 
             name="driveway" 
             onwards={["hall","bench"]}
             setScene={setScene}>
@@ -95,7 +84,6 @@ function App() {
     else if(scene === 'bench') {
       return (
         <Bench 
-          text={benchTxt} 
           name="bench" 
           onwards={["bedroom", "living", "driveway", "kitchen", "intro"]}
           setScene={setScene}>

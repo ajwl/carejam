@@ -59,6 +59,7 @@
 .button-strip button {
   height: 50px;
   margin-right: 2vw;
+  cursor: pointer;
 }
 
 .text-box {
@@ -125,5 +126,18 @@
 }
 
 #obituaryBig_Image {
+  opacity: 0;
+}
+
+#closeUPcar-2 {
+  opacity: 0;
+}
+
+#backpostcard,
+#frontpostcard {
+  opacity : 0;
+}
+
+#closeUP {
   opacity: 0;
 }
