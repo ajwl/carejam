@@ -48,6 +48,8 @@ function Bedroom({onwards, setScene }) {
     const expandedReportId = "#policeRportBig_Image"
     const lightOnId = "#LightON_Image"
 
+    const bedroomBackgroundId = "#background_Image"
+
   
     // wait until DOM has been rendered
     useEffect(() => {
@@ -59,49 +61,49 @@ function Bedroom({onwards, setScene }) {
         svgRef.current.querySelector(cellPhoneId).onclick=((targ)=>{
             showText(bmTextCellphone, setText, setTextVisible)
             setSoundUrlToPlay(soundone)
-            pulseCircle(cellPhoneId)
+            pulseCircle(q, cellPhoneId)
         })
 
         // 2 shoes 
         svgRef.current.querySelector(shoesId).onclick=((targ)=>{
             showText(bmTextShoes, setText, setTextVisible)
             setSoundUrlToPlay(soundeight)
-            pulseCircle(shoesId)
+            pulseCircle(q, shoesId)
         })
 
         // 3 clothes
         svgRef.current.querySelector(clothesId).onclick=((targ)=>{
             showText(bmTextClothes, setText, setTextVisible)
             setSoundUrlToPlay(soundtwo)
-            pulseCircle(clothesId)
+            pulseCircle(q, clothesId)
         })
 
         // 4 chopsticks
         svgRef.current.querySelector(chopsticksId).onclick=((targ)=>{
             showText(bmTextChopsticks, setText, setTextVisible)
             setSoundUrlToPlay(soundthree)
-            pulseCircle(chopsticksId)
+            pulseCircle(q, chopsticksId)
         })
 
         // 5 jewelry
         svgRef.current.querySelector(jewelryId).onclick=((targ)=>{
             showText(bmTextJewelry, setText, setTextVisible)
             setSoundUrlToPlay(soundfive)
-            pulseCircle(jewelryId)
+            pulseCircle(q, jewelryId)
         })
 
         // 6 doll
         svgRef.current.querySelector(dollId).onclick=((targ)=>{
             showText(bmTextDoll, setText, setTextVisible)
             setSoundUrlToPlay(soundfour)
-            pulseCircle(dollId)
+            pulseCircle(q, dollId)
         })
 
         // 7 report
         svgRef.current.querySelector(reportId).onclick=((targ)=>{
             showText(bmTextReport, setText, setTextVisible)
             setSoundUrlToPlay(soundseven)
-            pulseCircle(reportId)
+            pulseCircle(q, reportId)
             if(isReportShowing) {
                 gsap.to(q(expandedReportId), { opacity: 0, duration: 0.6, ease: "power1.out" });
                 isReportShowing = false;
@@ -115,7 +117,7 @@ function Bedroom({onwards, setScene }) {
         svgRef.current.querySelector(switchId).onclick=((targ)=>{
             showText(bmTextSwitch, setText, setTextVisible)
             setSoundUrlToPlay(soundsix)
-            pulseCircle(switchId)
+            pulseCircle(q, switchId)
             if(lightsOn) {
                 gsap.to(q(lightOnId), { opacity: 0, duration: 1.2, ease: "power1.out" });
                 lightsOn = false;
@@ -125,8 +127,14 @@ function Bedroom({onwards, setScene }) {
             }
         })
 
-     
+        // 9 background - clear out
+        svgRef.current.querySelector(bedroomBackgroundId).onclick=((targ)=>{
+            setTextVisible(false)
+            setSoundUrlToPlay(null)
 
+            gsap.to(q(reportId), { opacity: 0 });
+            isReportShowing = false;
+        })
 
 
     },[q]);

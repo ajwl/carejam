@@ -28,6 +28,8 @@ function Living({ onwards, setScene }) {
     const certId = "#l-certificate"
     const portraitId = "#l-portrait"
     const scarfId = "#l-scarf"
+
+    const backgroundLivId = "#Cloours_Image"
     
 
     useEffect(() => {
@@ -51,6 +53,12 @@ function Living({ onwards, setScene }) {
             showText(livTextScarf, setText, setTextVisible)
             setSoundUrlToPlay(soundScarf)
             pulseCircle(q, scarfId)
+        })
+
+        // 4 background - clear out
+        svgRef.current.querySelector(backgroundLivId).onclick=((targ)=>{
+            setTextVisible(false)
+            setSoundUrlToPlay(null)
         })
         
     });

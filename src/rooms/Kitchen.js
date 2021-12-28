@@ -38,21 +38,21 @@ function Kitchen({ onwards, setScene }) {
         svgRef.current.querySelector(cashId).onclick=((targ)=>{
             showText(ktTextCash, setText, setTextVisible)
             setSoundUrlToPlay(soundCash)
-            pulseCircle(cashId)
+            pulseCircle(q, cashId)
         })
 
         // 2 phone 
         svgRef.current.querySelector(phoneId).onclick=((targ)=>{
             showText(ktTextPhone, setText, setTextVisible)
             setSoundUrlToPlay(soundPhone)
-            pulseCircle(phoneId)
+            pulseCircle(q, phoneId)
         })
 
         // 3 obit
         svgRef.current.querySelector(obitId).onclick=((targ)=>{
             showText(ktTextObit, setText, setTextVisible)
             setSoundUrlToPlay(soundObit)
-            pulseCircle(obitId)
+            pulseCircle(q, obitId)
             if(isObitShowing) {
                 gsap.to(q(expandedObitId), { opacity: 0, duration: 0.6, ease: "power1.out" });
                 isObitShowing = false;

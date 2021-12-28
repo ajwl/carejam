@@ -110,6 +110,8 @@
 }
 
 
+
+
 .clickable-shape {
   opacity: 0.15;
   stroke: black;
@@ -140,4 +142,11 @@
 
 #closeUP {
   opacity: 0;
+}
+
+#ENDcALL_Image,
+#cALL3_Image,
+#Call2_Image,
+#Call1_Image {
+  cursor: pointer;
 }
