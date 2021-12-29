@@ -113,7 +113,7 @@
 
 
 .clickable-shape {
-  opacity: 0.15;
+  opacity: 0;
   stroke: black;
   /* stroke-width: 2pc; */
   cursor: pointer;
@@ -144,6 +144,7 @@
   opacity: 0;
 }
 
+#doorPath_,
 #ENDcALL_Image,
 #cALL3_Image,
 #Call2_Image,

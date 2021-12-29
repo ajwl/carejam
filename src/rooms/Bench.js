@@ -4,7 +4,7 @@ import '../App.css';
 import { ReactComponent as BenchSvg } from "../assets/bench.svg";
 import TextBox from "../TextBox.js"
 import Audio from "../Audio.js"
-import { showText, pulseCircle } from '../helpers.js';
+import { showText } from '../helpers.js';
 
 import soundBeach from "../assets/sounds/bench-beach.mp3"
 import soundMrsG from "../assets/sounds/bench-mrs-g.mp3"
@@ -73,7 +73,7 @@ function Bench({ onwards, setScene }) {
             isMsGShowing = false;
         })
 
-    });
+    },[q]);
 
 
   return (

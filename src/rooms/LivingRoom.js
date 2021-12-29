@@ -61,7 +61,7 @@ function Living({ onwards, setScene }) {
             setSoundUrlToPlay(null)
         })
         
-    });
+    },[q]);
 
 
   return (

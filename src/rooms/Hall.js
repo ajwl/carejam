@@ -106,7 +106,7 @@ function Hall({ onwards, setScene }) {
         // svgRef.current.querySelector(handAllId).onclick=(()=>{
         //     gsap.to(q(handAllId), { y: -300, delay: 0.6, duration: 3, ease: "power.inOut" });
         // })
-    },[]);
+    },[q]);
 
 
   return (

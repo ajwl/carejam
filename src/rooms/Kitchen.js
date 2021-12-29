@@ -12,7 +12,7 @@ import soundPhone from "../assets/sounds/kitchen-phone.mp3"
 import soundBuzz from "../assets/sounds/kitchen-buzzing.mp3"
 
 const ktTextCash = "The cash register looks empty. This is where Mrs. Galavaten keeps her cash. She gives it to her grandkids and great grandkids whenever they visit, which is seldom these days."
-const ktTextPhone = "The landline phone with the notepad next to it. It looks like Mrs. Galavaten’s handwriting. The scribbled note reads: “Michael Dayton called from HSBC. Suspicious activity on the account. Call Edgar to find out what happened."
+const ktTextPhone = "The landline phone with the notepad next to it. It looks like Mrs. Galavaten’s handwriting. The scribbled note reads: 'Michael Dayton called from HSBC. Suspicious activity on the account. Call Edgar to find out what happened'."
 const ktTextObit = "Maria Perez, 68, of Margate died on Wednesday, 9 June 2004 in Queen Elizabeth The Queen Mother Hospital. Born in Margate on May 26, 1936, she was the daughter of the late Alonzo Perez, Jr. and Rhoda Mae Perez. Never married, she was an avid traveler and loved her dog Skip. She is survived by her two sisters."
 
 function Kitchen({ onwards, setScene }) {
@@ -65,7 +65,7 @@ function Kitchen({ onwards, setScene }) {
 
 
 
-    });
+    },[q]);
 
 
   return (
@@ -78,8 +78,8 @@ function Kitchen({ onwards, setScene }) {
         <TextBox text={text} setTextVisible={setTextVisible} visible={textVisible}/>
         <div className="button-strip">
             {
-                onwards.map(path => {
-                    return  <button onClick={() => setScene(path)}>Go to {path}</button>
+                onwards.map((path,i) => {
+                    return  <button key={i} onClick={() => setScene(path)}>Go to {path}</button>
                 })
             }
         </div>

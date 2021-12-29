@@ -105,7 +105,7 @@ function Driveway({ onwards, setScene }) {
             isPostcardShowing = false;
         })
 
-    },[]);
+    },[q]);
 
   return (
     <>

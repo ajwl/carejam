@@ -71,35 +71,7 @@ function Bedroom({onwards, setScene }) {
             pulseCircle(q, shoesId)
         })
 
-        // 3 clothes
-        svgRef.current.querySelector(clothesId).onclick=((targ)=>{
-            showText(bmTextClothes, setText, setTextVisible)
-            setSoundUrlToPlay(soundtwo)
-            pulseCircle(q, clothesId)
-        })
-
-        // 4 chopsticks
-        svgRef.current.querySelector(chopsticksId).onclick=((targ)=>{
-            showText(bmTextChopsticks, setText, setTextVisible)
-            setSoundUrlToPlay(soundthree)
-            pulseCircle(q, chopsticksId)
-        })
-
-        // 5 jewelry
-        svgRef.current.querySelector(jewelryId).onclick=((targ)=>{
-            showText(bmTextJewelry, setText, setTextVisible)
-            setSoundUrlToPlay(soundfive)
-            pulseCircle(q, jewelryId)
-        })
-
-        // 6 doll
-        svgRef.current.querySelector(dollId).onclick=((targ)=>{
-            showText(bmTextDoll, setText, setTextVisible)
-            setSoundUrlToPlay(soundfour)
-            pulseCircle(q, dollId)
-        })
-
-        // 7 report
+        // 3 report
         svgRef.current.querySelector(reportId).onclick=((targ)=>{
             showText(bmTextReport, setText, setTextVisible)
             setSoundUrlToPlay(soundseven)
@@ -113,7 +85,7 @@ function Bedroom({onwards, setScene }) {
             }
         })
 
-        // 8 switch
+        // 4 switch
         svgRef.current.querySelector(switchId).onclick=((targ)=>{
             showText(bmTextSwitch, setText, setTextVisible)
             setSoundUrlToPlay(soundsix)
@@ -126,6 +98,39 @@ function Bedroom({onwards, setScene }) {
                 lightsOn = true;
             }
         })
+
+        // 5 clothes IF LIGHT ON
+        svgRef.current.querySelector(clothesId).onclick=((targ)=>{
+                showText(bmTextClothes, setText, setTextVisible)
+                setSoundUrlToPlay(soundtwo)
+                pulseCircle(q, clothesId)
+        })
+
+        // 6 chopsticks IF LIGHT ON 
+        svgRef.current.querySelector(chopsticksId).onclick=((targ)=>{
+                showText(bmTextChopsticks, setText, setTextVisible)
+                setSoundUrlToPlay(soundthree)
+                pulseCircle(q, chopsticksId)
+        })
+
+        // 7 jewelry IF LIGHT ON 
+        svgRef.current.querySelector(jewelryId).onclick=((targ)=>{
+                showText(bmTextJewelry, setText, setTextVisible)
+                setSoundUrlToPlay(soundfive)
+                pulseCircle(q, jewelryId)
+        })
+
+        // 8 doll IF LIGHT ON 
+        svgRef.current.querySelector(dollId).onclick=((targ)=>{
+            // console.log("--------in doll el", lightsOn)
+            // if(lightsOn) {
+                showText(bmTextDoll, setText, setTextVisible)
+                setSoundUrlToPlay(soundfour)
+                pulseCircle(q, dollId)
+            // }
+        })
+
+
 
         // 9 background - clear out
         svgRef.current.querySelector(bedroomBackgroundId).onclick=((targ)=>{

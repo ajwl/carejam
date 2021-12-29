@@ -5,7 +5,6 @@ import { ReactComponent as IntroSvg } from "../assets/intro.svg";
 import TextBox from "../TextBox.js"
 import Audio from "../Audio.js"
 
-import Sound from "react-sound"
 import soundone from "../assets/sounds/intro-water-lapping.mp3"
 import soundtwo from "../assets/sounds/intro-door.mp3"
 

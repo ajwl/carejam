@@ -20,7 +20,7 @@ function App() {
     //   gsap.to(boxRef.current, { rotation: "+=360" });
     // });
 
-  const [scene, setScene] = useState("driveway");
+  const [scene, setScene] = useState("intro");
 
   const introTxt = "Margate, 4:55pm, you are 5 minutes early"
 
