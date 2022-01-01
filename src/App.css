@@ -22,29 +22,33 @@
 
 
 .Scene {
-  /* background-color: #282c34; */
   min-height: 100vh;
-  min-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  background-color: black;
   overflow-x: scroll;    
   white-space: nowrap;
   width: 100%;
 }
 
 .wrapper {
-  overflow-x: auto;
+  overflow: visible;
 }
 
 .Scene img,
 .Scene svg {
-    height: 100vmin;
-    /* height: 100%; */
-    vertical-align: top;
+  object-fit: fill;
+  object-position: left top;
+  overflow-x: visible;
+  vertical-align: top;
+  /* height: 100vmin;
+  width: auto; */
+  height: auto;
+  width: 100vmax;
 }
 
 .button-strip {
@@ -119,6 +123,18 @@
   cursor: pointer;
 }
 
+.clickable-nav {
+  cursor: pointer;
+  fill: transparent;
+  stroke:white;
+  stroke-miterlimit:10;
+  stroke-width: 3px;
+
+}
+.clickable-nav:hover {
+  fill: #FFED00;
+}
+
 #policeRportBig_Image {
   opacity: 0;
 }
@@ -143,7 +159,7 @@
 #closeUP {
   opacity: 0;
 }
-
+#PhoneHand text,
 #doorPath_,
 #ENDcALL_Image,
 #cALL3_Image,
@@ -151,3 +167,4 @@
 #Call1_Image {
   cursor: pointer;
 }
+

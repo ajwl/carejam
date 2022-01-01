@@ -11,7 +11,7 @@ import soundCarDoor from "../assets/sounds/drive-car-close.mp3"
 import soundPostcard from "../assets/sounds/drive-postcards.mp3"
 import soundAfternoon from "../assets/sounds/drive-afternoon.mp3"
 
-const driveTextCar = "Ah the Lexus. Mrs. Galavaten’s prized car. She used to cruise around the Margate in the late 90’s just before the seaside town started to decline. Decades of austerity and That cherism meant that everything went into disrepair, including the Dreamland amusement park."
+const driveTextCar = "Ah the Lexus. Mrs. Galavaten’s prized car. She used to cruise around the Margate in the late 90’s just before the seaside town started to decline. Decades of austerity and Thatcherism meant that everything went into disrepair, including the Dreamland amusement park."
 const driveTextCarDoor = "Oh the Lexus. Oh the door appears to be locked."
 const driveTextPostcard = `
             Oh let me see. Oh there are some postcards. Tons of them addressed to Mrs. Galavaten. The name of the sender appears illegible. It reads: 

@@ -21,6 +21,7 @@ function App() {
     // });
 
   const [scene, setScene] = useState("intro");
+  const [firstTimeInHall, setFirstTimeInHall] = useState(true);
 
   const introTxt = "Margate, 4:55pm, you are 5 minutes early"
 
@@ -41,11 +42,14 @@ function App() {
         <Hall 
           name="hall" 
           onwards={["bedroom", "living", "driveway", "kitchen", "intro"]}
+          firstTimeInHall={firstTimeInHall}
+          setFirstTimeInHall={setFirstTimeInHall}
           setScene={setScene}>
         </Hall>
       )
     }
     else if(scene === 'bedroom'){
+      
       return(
         <Bedroom 
           name="bedroom" 
