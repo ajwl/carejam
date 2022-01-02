@@ -11,10 +11,7 @@ import soundPortrait from "../assets/sounds/living-portrait.mp3"
 import soundScarf from "../assets/sounds/living-scarf.mp3"
 import soundWalk from "../assets/sounds/living-walk.mp3"
 
-const livTextCertificate = "Her certificate of achievement. Let me read this one: “Margate’s Local Hero Award 2015. 30 Years of Dedication and Service to the Community.” Even though we were boss and employee, activism was one of the few ways Mrs. Galavaten and I connected as friends. Yeah, she was an activist. I’m an activist. I love that."
-const livTextScarf = "Hmm her scarf. Mrs. Galavaten takes this scarf everywhere with her. In fact, she never leaves the house without it. It was a gift from an old colleague at her school, where she taught."
-const livTextPortrait = "Portrait of Mr. Galavaten. Mr. Galavaten was an avid fisherman. He passed away in 2017 – just a year before I started caring for Mrs. Galavaten. By then, she had already been diagnosed with dementia. The two got married in 1954 – when she was only 18 years-old. I heard from one care worker that it was a marriage of convenience. Another told me Mr. Galavaten had many lovers on the side. "
-
+import {livTextCertificate, livTextScarf, livTextPortrait} from "../allText.js"
 
 function Living({ setScene }) {
 

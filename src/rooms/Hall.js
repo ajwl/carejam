@@ -12,10 +12,11 @@ import soundtwo from "../assets/sounds/hall-mailbox-full.mp3"
 import soundone from "../assets/sounds/hall-mailbox-not-setup.mp3"
 import soundintro from "../assets/sounds/hall-intro-where.mp3"
 
+import {introText} from "../allText.js"
+
 
 gsap.registerPlugin(ScrollTrigger);
 
-const introText = "Gooooooood afternoon, Mrs. Galavaten! Hope you’re ready for a long walk… Hello? Mrs. Galavaten? Where are you…?"
 // const textCallOne = "Call Ms Galavaten.... okay she has probably not even switched that thing on"
 // const textCallTwo = "Call Ms Galavaten's son...  that useless guy never picks up"
 // const textCallThree = "Call the agency... great no-one's picking up"

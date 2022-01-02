@@ -11,25 +11,8 @@ import soundCarDoor from "../assets/sounds/drive-car-close.mp3"
 import soundPostcard from "../assets/sounds/drive-postcards.mp3"
 import soundAfternoon from "../assets/sounds/drive-afternoon.mp3"
 
-const driveTextCar = "Ah the Lexus. Mrs. Galavaten’s prized car. She used to cruise around the Margate in the late 90’s just before the seaside town started to decline. Decades of austerity and Thatcherism meant that everything went into disrepair, including the Dreamland amusement park."
-const driveTextCarDoor = "Oh the Lexus. Oh the door appears to be locked."
-const driveTextPostcard = `
-            Oh let me see. Oh there are some postcards. Tons of them addressed to Mrs. Galavaten. The name of the sender appears illegible. It reads: 
+import {driveTextCar, driveTextCarDoor, driveTextPostcard} from "../allText.js"
 
-            “21 June, 1954
-
-            My beloved,
-
-            The sun has barely cracked above the treetops. The lavender-orange is cascading off the graying buildings. This morning, as every morning, I thought of you. Our long walks on the Margate waterfront. The sharp and salty smell of the sea. Catching glimpses of your blue-green eyes – the colour of the waves. Your long flowing skirt tracing the outline of your legs. Our hands barely touching. 
-
-            I miss you. I hope you have the pearl fish necklace I gave you. It was my grandmother’s. I’m in town until Thursday visiting family. I can’t help but wonder if we made the right decision. 
-
-            Please meet me. Margate Waterfront at 4pm.
-
-            Still yours,
-            M
-
-        I want to cry…`
 
 function Driveway({ onwards, setScene }) {
 
@@ -48,6 +31,7 @@ function Driveway({ onwards, setScene }) {
     const expandedPostcardBackId = "#backpostcard"
 
     const backgroundDrivewayId = "#Colours_Image"
+    const dDoorHall = "#d-door-hall"
 
 
 
@@ -93,7 +77,20 @@ function Driveway({ onwards, setScene }) {
             }
         })
 
-        // 4 background - clear out
+        // 4 Navigation to hall 
+        svgRef.current.querySelector(dDoorHall).onclick=((targ)=>{
+            gsap.fromTo(q(dDoorHall), { fill:  "#FFED00;" },{ fill: "transparent", duration: 0.3, repeat: 3, ease: "power.inOut" });
+            setTimeout(() => { setScene("hall") }, 900);
+        })
+
+        // 5 Navigation to beach 
+        svgRef.current.querySelector(expandedPostcardBackId).onclick=((targ)=>{
+            gsap.fromTo(q(), { fill:  "#FFED00;" },{ fill: "transparent", duration: 0.3, repeat: 3, ease: "power.inOut" });
+            setTimeout(() => { setScene("bench") }, 900);
+        })
+
+
+        // 6 background - clear out
         svgRef.current.querySelector(backgroundDrivewayId).onclick=((targ)=>{
             setTextVisible(false)
             setSoundUrlToPlay(null)
@@ -115,13 +112,6 @@ function Driveway({ onwards, setScene }) {
             </div>
         </div>
         <TextBox text={text} setTextVisible={setTextVisible} visible={textVisible}/>
-        <div className="button-strip">
-            {
-                onwards.map((path, i) => {
-                    return  <button key={i} onClick={() => setScene(path)}>Go to {path}</button>
-                })
-            }
-        </div>
         <Audio soundUrl={soundUrlToPlay} />
     </>
   );

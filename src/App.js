@@ -13,17 +13,14 @@ import Bedroom from './rooms/Bedroom.js'
 function App() {
 
 
-  const [scene, setScene] = useState("living");
+  const [scene, setScene] = useState("intro");
   const [firstTimeInHall, setFirstTimeInHall] = useState(true);
-
-  const introTxt = "Margate, 4:55pm, you are 5 minutes early"
 
 
   const getSceneCompoonent = () => {
     if(scene === 'intro') {
       return (
         <Intro 
-            text={introTxt} 
             name="intro" 
             onwards={["hall"]}
             setScene={setScene}>

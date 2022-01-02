@@ -9,12 +9,13 @@ import soundone from "../assets/sounds/intro-water-lapping.mp3"
 import soundtwo from "../assets/sounds/intro-door.mp3"
 
 
+import {textOne} from "../allText.js";
+
+
 function Intro({ setScene }) {
 
     const [textVisible, setTextVisible] = useState(true)
     const [soundUrlToPlay, setSoundUrlToPlay] = useState(soundone)
-
-    const textOne = "Margate, England. June 21, 2021. 4:55PM: You arrive early for your shift."
 
     // store a reference to the box div
     const svgRef = useRef();
