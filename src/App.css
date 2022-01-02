@@ -145,6 +145,11 @@
   opacity: 0.2;
 }
 
+#living .clickable-nav:hover {
+  fill: #00ffed;
+  opacity: 0.2;
+}
+
 #policeRportBig_Image {
   opacity: 0;
 }

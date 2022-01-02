@@ -57,11 +57,11 @@ function Bedroom({name, onwards, setScene }) {
     // wait until DOM has been rendered
     useEffect(() => {
 
-        const hideReport = (id) =>{
+        const hideItem = (id) =>{
             return gsap.to(q(id), { opacity: 0, duration: 0.6, ease: "power1.out" });
         }
     
-        const showReport = (id) => {
+        const showItem = (id) => {
             return gsap.to(q(id), {opacity: 1, duration: 0.6, ease: "power1.out"})
         }
     
@@ -86,10 +86,10 @@ function Bedroom({name, onwards, setScene }) {
             setSoundUrlToPlay(soundseven)
             pulseCircle(q, reportId)
             if(isReportShowing) {
-                hideReport(expandedReportId)
+                hideItem(expandedReportId)
                 setIsReportShowing(false)
             } else {
-                showReport(expandedReportId)
+                showItem(expandedReportId)
                 setIsReportShowing(true)
             }
         })
@@ -147,7 +147,7 @@ function Bedroom({name, onwards, setScene }) {
 
         // 9 background - clear out
         svgRef.current.querySelector(lightOnId).onclick=(()=>{
-            hideReport(expandedReportId)
+            hideItem(expandedReportId)
             setIsReportShowing(false)
             setTextVisible(false)
             setSoundUrlToPlay(null)

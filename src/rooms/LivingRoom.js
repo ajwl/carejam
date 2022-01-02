@@ -62,7 +62,7 @@ function Living({ setScene }) {
             setSoundUrlToPlay(null)
         })
 
-        // 5 
+        // 5 NAVIGATION to kitchen 
         svgRef.current.querySelector(lDoorKitchen).onclick=((targ)=>{
             gsap.fromTo(q(lDoorKitchen), { fill:  "#FFED00;" },{ fill: "transparent", duration: 0.3, repeat: 3, ease: "power.inOut" });
             setTimeout(() => { setScene("kitchen") }, 900);
