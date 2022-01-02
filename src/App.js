@@ -12,13 +12,6 @@ import Bedroom from './rooms/Bedroom.js'
 
 function App() {
 
-    // store a reference to the box div
-    // const boxRef = useRef();
-
-    // wait until DOM has been rendered
-    // useEffect(() => {
-    //   gsap.to(boxRef.current, { rotation: "+=360" });
-    // });
 
   const [scene, setScene] = useState("intro");
   const [firstTimeInHall, setFirstTimeInHall] = useState(true);

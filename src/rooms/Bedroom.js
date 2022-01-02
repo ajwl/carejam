@@ -26,10 +26,11 @@ const bmTextDoll = "Oh no that creepy doll. This doll always gives me the creeps
 const bmTextReport = "Police report filed by Edgar Galavaten. Looks like a police report filed by Mrs. Galavaten’s older son. It’s hard to make out the text, but from what I can read: “On June 14, 2021, at 6:30pm, an altercation occurred between Edgar Galavaten and James Galavaten in their mother’s home… Alleged disagreement over money owed… large debts unpaid. Charges were dropped by Edgar Galavaten.”"
 
 
-function Bedroom({onwards, setScene }) {
+function Bedroom({name, onwards, setScene }) {
 
     const [textVisible, setTextVisible] = useState(false)
-    // const [isReportShowing, setIsReportShowing] = useState(false)
+    const [isReportShowing, setIsReportShowing] = useState(false)
+    const [lightOn, setLightOn] = useState(false)
     const [text, setText] = useState(""); 
 
     const [soundUrlToPlay, setSoundUrlToPlay] = useState(null)
@@ -48,14 +49,22 @@ function Bedroom({onwards, setScene }) {
     const expandedReportId = "#policeRportBig_Image"
     const lightOnId = "#LightON_Image"
 
-    const bedroomBackgroundId = "#background_Image"
+    const bDoorHall = "#b-door-hall"
+
+
 
   
     // wait until DOM has been rendered
     useEffect(() => {
-        let isReportShowing = false;
-        let lightsOn = false;
 
+        const hideReport = (id) =>{
+            return gsap.to(q(id), { opacity: 0, duration: 0.6, ease: "power1.out" });
+        }
+    
+        const showReport = (id) => {
+            return gsap.to(q(id), {opacity: 1, duration: 0.6, ease: "power1.out"})
+        }
+    
 
         // 1 cellphone 
         svgRef.current.querySelector(cellPhoneId).onclick=((targ)=>{
@@ -77,89 +86,91 @@ function Bedroom({onwards, setScene }) {
             setSoundUrlToPlay(soundseven)
             pulseCircle(q, reportId)
             if(isReportShowing) {
-                gsap.to(q(expandedReportId), { opacity: 0, duration: 0.6, ease: "power1.out" });
-                isReportShowing = false;
+                hideReport(expandedReportId)
+                setIsReportShowing(false)
             } else {
-                gsap.to(q(expandedReportId), {opacity: 1, duration: 0.6, ease: "power1.out"})
-                isReportShowing = true;
+                showReport(expandedReportId)
+                setIsReportShowing(true)
             }
         })
 
         // 4 switch
-        svgRef.current.querySelector(switchId).onclick=((targ)=>{
+        svgRef.current.querySelector(switchId).onclick=(()=>{
             showText(bmTextSwitch, setText, setTextVisible)
             setSoundUrlToPlay(soundsix)
             pulseCircle(q, switchId)
-            if(lightsOn) {
+            if(lightOn) {
                 gsap.to(q(lightOnId), { opacity: 0, duration: 1.2, ease: "power1.out" });
-                lightsOn = false;
+                setLightOn(false);
             } else {
                 gsap.to(q(lightOnId), {opacity: .93, duration: 3, ease: "power1.out"})
-                lightsOn = true;
+                setLightOn(true);
             }
         })
 
         // 5 clothes IF LIGHT ON
         svgRef.current.querySelector(clothesId).onclick=((targ)=>{
+            if(lightOn) {
                 showText(bmTextClothes, setText, setTextVisible)
                 setSoundUrlToPlay(soundtwo)
                 pulseCircle(q, clothesId)
+            }
         })
 
         // 6 chopsticks IF LIGHT ON 
         svgRef.current.querySelector(chopsticksId).onclick=((targ)=>{
+            if(lightOn) {
                 showText(bmTextChopsticks, setText, setTextVisible)
                 setSoundUrlToPlay(soundthree)
                 pulseCircle(q, chopsticksId)
+            }
         })
 
         // 7 jewelry IF LIGHT ON 
         svgRef.current.querySelector(jewelryId).onclick=((targ)=>{
+            if(lightOn) {
                 showText(bmTextJewelry, setText, setTextVisible)
                 setSoundUrlToPlay(soundfive)
                 pulseCircle(q, jewelryId)
+            }
         })
 
         // 8 doll IF LIGHT ON 
         svgRef.current.querySelector(dollId).onclick=((targ)=>{
-            // console.log("--------in doll el", lightsOn)
-            // if(lightsOn) {
+            if(lightOn) {
                 showText(bmTextDoll, setText, setTextVisible)
                 setSoundUrlToPlay(soundfour)
                 pulseCircle(q, dollId)
-            // }
+            }
         })
-
 
 
         // 9 background - clear out
-        svgRef.current.querySelector(bedroomBackgroundId).onclick=((targ)=>{
+        svgRef.current.querySelector(lightOnId).onclick=(()=>{
+            hideReport(expandedReportId)
+            setIsReportShowing(false)
             setTextVisible(false)
             setSoundUrlToPlay(null)
-
-            gsap.to(q(reportId), { opacity: 0 });
-            isReportShowing = false;
         })
 
+        // NAVIGATION ------- 
+        // 1. hall  
+        svgRef.current.querySelector(bDoorHall).onclick=(()=>{
+            gsap.fromTo(q(bDoorHall), { fill: ( lightOn ? "#FFED00;" : "#00ffed" )},{ fill: "transparent", duration: 0.3, repeat: 3, ease: "power.inOut" });
+            setTimeout(() => { setScene("hall") }, 900);
+        })
 
-    },[q]);
+    },[q, isReportShowing, lightOn, setLightOn, setScene]);
 
 
   return (
     <>
-        <div className="Scene">
+        <div className={lightOn ? "Scene" : "Scene lightoff"} id={name}>
             <div className="wrapper svg-wrapper">
                 <BedroomSvg ref={svgRef}/> 
             </div>
         </div>
         <TextBox text={text} setTextVisible={setTextVisible} visible={textVisible}/>
-        <div className="button-strip">
-            {
-                onwards.map((path, i) => {
-                    return  <button onClick={() => setScene(path)} key={i}>Go to {path}</button>
-                })
-            }
-        </div>
         <Audio soundUrl={soundUrlToPlay} />
     </>
   );

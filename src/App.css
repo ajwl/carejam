@@ -133,6 +133,16 @@
 }
 .clickable-nav:hover {
   fill: #FFED00;
+  opacity: 0.5;
+}
+
+#bedroom .clickable-nav {
+  stroke-width: 0px;
+}
+
+#bedroom.lightoff .clickable-nav:hover {
+  fill: #00ffed;
+  opacity: 0.2;
 }
 
 #policeRportBig_Image {
@@ -167,4 +177,6 @@
 #Call1_Image {
   cursor: pointer;
 }
+
+
 

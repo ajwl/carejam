@@ -16,9 +16,9 @@ import soundintro from "../assets/sounds/hall-intro-where.mp3"
 gsap.registerPlugin(ScrollTrigger);
 
 const introText = "Gooooooood afternoon, Mrs. Galavaten! Hope you’re ready for a long walk… Hello? Mrs. Galavaten? Where are you…?"
-const textCallOne = "Call Ms Galavaten.... okay she has probably not even switched that thing on"
-const textCallTwo = "Call Ms Galavaten's son...  that useless guy never picks up"
-const textCallThree = "Call the agency... great no-one's picking up"
+// const textCallOne = "Call Ms Galavaten.... okay she has probably not even switched that thing on"
+// const textCallTwo = "Call Ms Galavaten's son...  that useless guy never picks up"
+// const textCallThree = "Call the agency... great no-one's picking up"
 
 
 function Hall({ onwards, setScene, firstTimeInHall, setFirstTimeInHall }) {
@@ -57,27 +57,6 @@ function Hall({ onwards, setScene, firstTimeInHall, setFirstTimeInHall }) {
         }
         setFirstTimeInHall(false)
 
-
-
-        // let mainTl = gsap.timeline( {scrollTrigger: {
-        //     trigger: q(handAllId),
-        //     // scroller: ,
-        //     horizontal: true,
-        //     start: 'left 80%',
-        //     end: `right 50%`,
-        //     scrub: true,
-        //     scroll: "horizontal",
-        //     toggleActions: "play pause reverse pause",
-        //     toggleClass: "active", 
-        //     markers: true,
-        // }})
-
-        // mainTl.to(q(handAllId), { y: -300, delay: 0.6, duration: 3, ease: "power.inOut" });
-
-        // click anywhere on bg 
-        // bring hand up
-        // svgRef.current.querySelector(svgBg).onclick=(()=>{
-        // })
 
         // 1 call mrs Galavaten ----------
         svgRef.current.querySelector(call1Id).onclick=(()=>{
@@ -138,10 +117,7 @@ function Hall({ onwards, setScene, firstTimeInHall, setFirstTimeInHall }) {
             setTimeout(() => { setScene("driveway") }, 900);
         })
 
-
-
-
-    },[q]);
+    },[q, firstTimeInHall, setScene, setFirstTimeInHall]);
 
 
   return (
