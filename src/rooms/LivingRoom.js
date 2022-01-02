@@ -16,7 +16,7 @@ const livTextScarf = "Hmm her scarf. Mrs. Galavaten takes this scarf everywhere 
 const livTextPortrait = "Portrait of Mr. Galavaten. Mr. Galavaten was an avid fisherman. He passed away in 2017 – just a year before I started caring for Mrs. Galavaten. By then, she had already been diagnosed with dementia. The two got married in 1954 – when she was only 18 years-old. I heard from one care worker that it was a marriage of convenience. Another told me Mr. Galavaten had many lovers on the side. "
 
 
-function Living({ onwards, setScene }) {
+function Living({ setScene }) {
 
     const [textVisible, setTextVisible] = useState(false)
     const [text, setText] = useState(""); 
@@ -28,6 +28,7 @@ function Living({ onwards, setScene }) {
     const certId = "#l-certificate"
     const portraitId = "#l-portrait"
     const scarfId = "#l-scarf"
+    const lDoorKitchen = "#l-door-kitchen"
 
     const backgroundLivId = "#Cloours_Image"
     
@@ -60,25 +61,25 @@ function Living({ onwards, setScene }) {
             setTextVisible(false)
             setSoundUrlToPlay(null)
         })
+
+        // 5 
+        svgRef.current.querySelector(lDoorKitchen).onclick=((targ)=>{
+            gsap.fromTo(q(lDoorKitchen), { fill:  "#FFED00;" },{ fill: "transparent", duration: 0.3, repeat: 3, ease: "power.inOut" });
+            setTimeout(() => { setScene("kitchen") }, 900);
+        })
         
-    },[q]);
+        
+    },[q, setScene]);
 
 
   return (
     <>
-        <div className="Scene">
+        <div className="Scene" id="living">
             <div className="wrapper svg-wrapper">
                 <LivingSvg ref={svgRef}/> 
             </div>
         </div>
         <TextBox text={text} setTextVisible={setTextVisible} visible={textVisible}/>
-        <div className="button-strip">
-            {
-                onwards.map(path => {
-                    return  <button onClick={() => setScene(path)}>Go to {path}</button>
-                })
-            }
-        </div>
         <Audio soundUrl={soundUrlToPlay} />
     </>
   );

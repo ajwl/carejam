@@ -13,7 +13,7 @@ import Bedroom from './rooms/Bedroom.js'
 function App() {
 
 
-  const [scene, setScene] = useState("intro");
+  const [scene, setScene] = useState("living");
   const [firstTimeInHall, setFirstTimeInHall] = useState(true);
 
   const introTxt = "Margate, 4:55pm, you are 5 minutes early"
