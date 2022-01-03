@@ -13,7 +13,7 @@ import Bedroom from './rooms/Bedroom.js'
 function App() {
 
 
-  const [scene, setScene] = useState("bench");
+  const [scene, setScene] = useState("intro");
   const [firstTimeInHall, setFirstTimeInHall] = useState(true);
 
 

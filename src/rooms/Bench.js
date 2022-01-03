@@ -39,14 +39,12 @@ function Bench({ onwards, setScene }) {
         svgRef.current.querySelector(beachId).onclick=((targ)=>{
             showText(benchTextBeach, setText, setTextVisible)
             setSoundUrlToPlay(soundBeach)
-            // pulseCircle(beachId, q)
         })
 
         // 2 passerby
         svgRef.current.querySelector(passerId).onclick=((targ)=>{
             showText(benchTextPasser, setText, setTextVisible)
             setSoundUrlToPlay(soundPasser)
-            // pulseCircle(passerId, q)
         })
 
         // 3 mrs g 
@@ -58,7 +56,7 @@ function Bench({ onwards, setScene }) {
                 setIsMsGShowing(false)
             } else {
                 gsap.to(q(mrsGExpandedId), {opacity: 1, duration: 0.6, ease: "power1.out"})
-                gsap.to(q(mrsGLeg), { rotation: -10, duration:.6, repeat: 3, delay: 1, transformOrigin:"left top", yoyo: true, ease: "power1.inOut" })
+                gsap.to(q(mrsGLeg), { rotation: -10, duration:.9, repeat: -1, delay: 1.2, transformOrigin:"left top", yoyo: true, ease: "power1.inOut" })
                 setIsMsGShowing(true)
             }
         })
