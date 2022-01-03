@@ -26,6 +26,7 @@ function Bench({ onwards, setScene }) {
     const beachId = "#b-beach"
     const passerId = "#b-passer"
     const mrsGId = "#b-ms-g"
+    const beachDoorHall ="#b-door-hall"
     const mrsGExpandedId = "#closeUP"
     const mrsGLeg = "#RightLeg_Image"
     const bCloudOne = "#b-cloud-one"
@@ -45,6 +46,7 @@ function Bench({ onwards, setScene }) {
         svgRef.current.querySelector(passerId).onclick=((targ)=>{
             showText(benchTextPasser, setText, setTextVisible)
             setSoundUrlToPlay(soundPasser)
+            // gsap.to(q(bCloudOne), {x: 100, duration: 1.2, ease: "power1.out"})
         })
 
         // 3 mrs g 
@@ -67,6 +69,12 @@ function Bench({ onwards, setScene }) {
             setSoundUrlToPlay(null)
 
             gsap.to(q(mrsGExpandedId), { opacity: 0 });
+        })
+
+        // 5. beach back to hall 
+        svgRef.current.querySelector(beachDoorHall).onclick=((targ)=>{
+            gsap.fromTo(q(beachDoorHall), { fill:  "#FFED00;" },{ fill: "transparent", duration: 0.3, repeat: 3, ease: "power.inOut" });
+            setTimeout(() => { setScene("hall") }, 900);
         })
 
     },[q]);
