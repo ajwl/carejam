@@ -14,7 +14,7 @@ import soundAfternoon from "../assets/sounds/drive-afternoon.mp3"
 import {driveTextCar, driveTextCarDoor, driveTextPostcard} from "../allText.js"
 
 
-function Driveway({ onwards, setScene }) {
+function Driveway({ setScene }) {
 
     const [textVisible, setTextVisible] = useState(false)
     const [text, setText] = useState(""); 

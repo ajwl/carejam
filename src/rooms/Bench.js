@@ -18,6 +18,7 @@ function Bench({ onwards, setScene }) {
     const [textVisible, setTextVisible] = useState(false)
     const [text, setText] = useState(""); 
     const [soundUrlToPlay, setSoundUrlToPlay] = useState(soundWaves)
+    const [isMsGShowing, setIsMsGShowing] = useState(false)
 
     const svgRef = useRef();
     const q = gsap.utils.selector(svgRef);
@@ -26,12 +27,13 @@ function Bench({ onwards, setScene }) {
     const passerId = "#b-passer"
     const mrsGId = "#b-ms-g"
     const mrsGExpandedId = "#closeUP"
+    const mrsGLeg = "#RightLeg_Image"
+    const bCloudOne = "#b-cloud-one"
 
     const backgroundBenchId = "#backgound"
 
     // wait until DOM has been rendered
     useEffect(() => {
-        let isMsGShowing = false;
 
         // 1 beach
         svgRef.current.querySelector(beachId).onclick=((targ)=>{
@@ -53,10 +55,11 @@ function Bench({ onwards, setScene }) {
             setSoundUrlToPlay(soundMrsG)
             if(isMsGShowing) {
                 gsap.to(q(mrsGExpandedId), { opacity: 0, duration: 0.6, ease: "power1.out" });
-                isMsGShowing = false;
+                setIsMsGShowing(false)
             } else {
                 gsap.to(q(mrsGExpandedId), {opacity: 1, duration: 0.6, ease: "power1.out"})
-                isMsGShowing = true;
+                gsap.to(q(mrsGLeg), { rotation: -10, duration:.6, repeat: 3, delay: 1, transformOrigin:"left top", yoyo: true, ease: "power1.inOut" })
+                setIsMsGShowing(true)
             }
         })
 
@@ -66,7 +69,6 @@ function Bench({ onwards, setScene }) {
             setSoundUrlToPlay(null)
 
             gsap.to(q(mrsGExpandedId), { opacity: 0 });
-            isMsGShowing = false;
         })
 
     },[q]);
