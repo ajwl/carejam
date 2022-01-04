@@ -1,10 +1,10 @@
 // all text for all scenes 
 
 // intro scene 
-export const textOne = `<strong>Margate, England.</strong> <br/> June 21, 2021. 4:55PM: You arrive early for your shift.`
+export const textOne = `<strong>Margate, England.</strong> <br/> June 21, 2021 - 4:55PM <br/> You arrive early for your shift.`
 
 // hall 
-export const introText = `Gooooooood afternoon, Mrs. Galavaten! Hope you’re ready for a long walk… Hello? Mrs. Galavaten? Where are you…?`
+export const introText = `Goooooood afternoon, Mrs. Galavaten! Hope you’re ready for a long walk… Hello? Mrs. Galavaten? Where are you? Where are you?`
 
 // bedroom 
 export const bmTextCellphone = `Hmm I wonder why Mrs. Galavaten didn’t take her phone. Hmm. Oh my it appears to be locked`
